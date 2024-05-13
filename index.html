@@ -118,6 +118,29 @@
             color: #fff;
             text-decoration: none;
         }
+        /* Sticky navigáció */
+        nav.sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+        }
+
+        /* Chat panel megjelenése */
+        .chat-panel {
+            /* Stílusok */
+        }
+
+        /* TO DO lista stílusok */
+        .todo-list {
+            /* Stílusok */
+        }
+
+        .night-mode {
+            background-color: #000;
+            color: #fff;
+        }
+
     </style>
 
 </head>
@@ -171,6 +194,72 @@
             </div>
         </div>
 
+            <!-- TO DO lista -->
+       <!-- TO DO lista -->
+<div class="todo-list">
+    <h3>TO DO LIST</h3>
+    <ul id="todo-list">
+        <!-- TO DO elemek jelennek meg itt -->
+    </ul>
+    <input type="text" id="todo-input" placeholder="Új feladat hozzáadása...">
+    <button onclick="addTodo()">Hozzáadás</button>
+</div>
+
+<script>
+    // TO DO elem hozzáadása
+    function addTodo() {
+        var input = document.getElementById("todo-input");
+        var text = input.value;
+        var list = document.getElementById("todo-list");
+        
+        if (text.trim() !== "") {
+            var newItem = document.createElement("li");
+            newItem.textContent = text;
+            list.appendChild(newItem);
+            input.value = "";
+        } else {
+            alert("Add meg a TO DO elemet!");
+        }
+    }
+</script>
+
+
+        <!-- Chat panel -->
+<div class="chat-panel">
+    <div id="chat-content">
+        <!-- Itt jelenik meg a chat tartalom -->
+    </div>
+    <input type="text" id="chat-input" placeholder="Írj üzenetet...">
+    <button onclick="sendMessage()">Küldés</button>
+</div>
+
+<script>
+    function sendMessage() {
+        var input = document.getElementById("chat-input");
+        var message = input.value;
+        var chatContent = document.getElementById("chat-content");
+        
+        if (message.trim() !== "") {
+            var newMessage = document.createElement("p");
+            newMessage.textContent = message;
+            chatContent.appendChild(newMessage);
+            input.value = "";
+        }
+    }
+</script>
+
+<section id="nightmode">
+    <button onclick="toggleNightMode()">Éjszakai Üzemmód</button>
+</section>
+
+<!-- További tartalom -->
+<!-- ... -->
+
+<script>
+    function toggleNightMode() {
+        var body = document.body;
+        body.classList.toggle("night-mode");
+    }
 
 </body>
 
